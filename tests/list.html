@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Test</title>
+    <script src="../list.js" defer></script>
+    <link rel="stylesheet" href="../list.css">
+</head>
+<body>
+    <!-- Orientation test -->
+    <fwk-list> <!-- Same as vertical -->
+        <div>Test1</div>
+        <div>Test2</div>
+    </fwk-list>
+
+    <fwk-list orientation="vertical">
+        <div>Test1</div>
+        <div>Test2</div>
+    </fwk-list>
+
+    <fwk-list orientation="horizontal">
+        <div>Test1</div>
+        <div>Test2</div>
+    </fwk-list>
+
+    <!-- Border test -->
+    <fwk-list border="red">
+        <div>Test1</div>
+        <div>Test2</div>
+    </fwk-list>
+
+    <fwk-list border="red" orientation="horizontal">
+        <div>Test1</div>
+        <div>Test2</div>
+    </fwk-list>
+
+
+    <!-- Spacing test -->
+    <fwk-list spacing=".4rem">
+        <div>Test1</div>
+        <div>Test2</div>
+    </fwk-list>
+    
+    <fwk-list spacing=".4rem" orientation="horizontal">
+        <div>Test1</div>
+        <div>Test2</div>
+    </fwk-list>
+
+    <!-- Border & Spacing test -->
+    <fwk-list border="green" spacing=".4rem">
+        <div>Test1</div>
+        <div>Test2</div>
+    </fwk-list>
+
+    <fwk-list border="green" spacing=".4rem" orientation="horizontal">
+        <div>Test1</div>
+        <div>Test2</div>
+    </fwk-list>
+</body>
+</html>
