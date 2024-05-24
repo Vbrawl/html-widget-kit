@@ -11,7 +11,7 @@
          * Add a separator in the html element.
          * @param {HTMLElement} item The html element to edit.
          */
-        add_separator(item) {
+        addSeparator(item) {
             const sep = document.createElement('span');
             sep.classList.add("separator");
             item.appendChild(sep);
@@ -24,7 +24,7 @@
         render() {
             const item = document.createElement('div');
             item.classList.add('list-item');
-            this.include_data(item)
+            this.includeData(item)
             return item;
         }
 
@@ -32,12 +32,12 @@
          * Include the data of the ListItem to the html element.
          * @param {HTMLElement} item The html element to edit.
          */
-        include_data(item) {
+        includeData(item) {
             var add_sep = false;
             for (const key in this.data) {
                 const value = this.data[key];
 
-                if(add_sep) {this.add_separator(item);}
+                if(add_sep) {this.addSeparator(item);}
 
                 const element = document.createElement('div');
                 element.classList.add("item-data");
