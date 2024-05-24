@@ -10,7 +10,9 @@
 <body>
     <div id="list" is="hwk-list"></div>
     <script>
-        document.getElementById("list").addItem(new hwk.ListItem({greeting: "hello", message: "World"}));
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("list").addItem(new hwk.ListItem({greeting: "hello", message: "World"}));
+        })
     </script>
 </body>
 </html>
