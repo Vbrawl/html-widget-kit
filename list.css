@@ -1,5 +1,5 @@
 /* Add common styles */
-fwk-list {
+div[is="fwk-list"] {
     display: inline-flex;
     flex-wrap: nowrap;
     overflow: auto;
@@ -8,12 +8,12 @@ fwk-list {
 }
 
 /* Add orientation specific styles */
-fwk-list[orientation="horizontal"] {
+div[is="fwk-list"][orientation="horizontal"] {
     width: 100%;
     flex-direction: row;
 }
 
-fwk-list[orientation="vertical"] {
+div[is="fwk-list"][orientation="vertical"] {
     height: 100%;
     flex-direction: column;
 }
@@ -27,11 +27,11 @@ fwk-list[orientation="vertical"] {
     flex-grow: 0;
 }
 
-fwk-list[orientation="horizontal"] .fwk-list-spacer {
+div[is="fwk-list"][orientation="horizontal"] .fwk-list-spacer {
     width: var(--fwk-list-spacing, .2rem);
 }
 
 
-fwk-list[orientation="vertical"] .fwk-list-spacer {
+div[is="fwk-list"][orientation="vertical"] .fwk-list-spacer {
     height: var(--fwk-list-spacing, .2rem);
 }
