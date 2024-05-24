@@ -6,8 +6,8 @@ A list element is an element that allows to create visual lists for interaction 
 
 ## First step is to include the js/css.
 ```html
-<script src="https://github.com/Vbrawl/html-widget-kit/raw/main/list/list.js" defer></script>
-<link rel="stylesheet" href="https://github.com/Vbrawl/html-widget-kit/raw/main/list/list.css">
+<script src="https://yourCDN/list/list.js" defer></script>
+<link rel="stylesheet" href="https://yourCDN/list/list.css">
 ```
 
 ## Second you need to either specify a DIV element to be used as a list or use js to create one
