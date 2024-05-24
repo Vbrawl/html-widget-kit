@@ -1,37 +1,19 @@
-/* Add common styles */
-div[is="fwk-list"] {
-    display: inline-flex;
-    flex-wrap: nowrap;
-    overflow: auto;
 
-    border: 3px black solid;
+
+div[is="hwk-list"] .list-item {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
 }
 
-/* Add orientation specific styles */
-div[is="fwk-list"][orientation="horizontal"] {
-    width: 100%;
-    flex-direction: row;
+div[is="hwk-list"] .separator {
+    display: inline-block;
+    align-self: stretch;
+
+    background: black;
+    width: 1px;
 }
 
-div[is="fwk-list"][orientation="vertical"] {
-    height: 100%;
-    flex-direction: column;
-}
-
-/* Add spacers */
-.fwk-list-spacer {
-    width: 100%;
-    background: var(--fwk-list-border, none);
-
-    flex-shrink: 0;
-    flex-grow: 0;
-}
-
-div[is="fwk-list"][orientation="horizontal"] .fwk-list-spacer {
-    width: var(--fwk-list-spacing, .2rem);
-}
-
-
-div[is="fwk-list"][orientation="vertical"] .fwk-list-spacer {
-    height: var(--fwk-list-spacing, .2rem);
+div[is="hwk-list"] .list-data {
+    display: inline-block;
 }

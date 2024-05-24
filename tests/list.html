@@ -8,20 +8,9 @@
     <link rel="stylesheet" href="../list/list.css">
 </head>
 <body>
-    <!-- Orientation test -->
-    <div is="fwk-list"> <!-- Same as vertical -->
-        <div>Test1</div>
-        <div>Test2</div>
-    </div>
-
-    <div is="fwk-list" orientation="vertical">
-        <div>Test1</div>
-        <div>Test2</div>
-    </div>
-
-    <div is="fwk-list" orientation="horizontal">
-        <div>Test1</div>
-        <div>Test2</div>
-    </div>
+    <div id="list" is="hwk-list"></div>
+    <script>
+        document.getElementById("list").addItem(new hwk.ListItem({greeting: "hello", message: "World"}));
+    </script>
 </body>
 </html>

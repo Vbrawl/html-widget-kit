@@ -1,70 +1,82 @@
 
 
-(function(fwk) {
 
-    class fwk_walker {
-        constructor(lst) {
-            this.lst = lst;
-            this.legs = [null, null];
-            this.prevStep = 1;
+(function(hwk) {
+    hwk.ListItem = class ListItem {
+        constructor(data) {
+            this.data = data;
         }
 
-        doubleStep() {
-            this.singleStep();
-            this.singleStep();
+        /**
+         * Add a separator in the html element.
+         * @param {HTMLElement} item The html element to edit.
+         */
+        add_separator(item) {
+            const sep = document.createElement('span');
+            sep.classList.add("separator");
+            item.appendChild(sep);
         }
 
-        singleStep() {
-            var currentStep = this.getCurrentStep();
-            if(this.legs[this.prevStep] === null) { this.legs[currentStep] = this.lst.children[0]; }
-            else { this.legs[currentStep] = this.legs[this.prevStep].nextElementSibling; }
-            this.prevStep = currentStep;
-            return this.legs[this.prevStep];
+        /**
+         * Render the ListItem as HTML.
+         * @returns The rendered HTMLElement ready to be added to the DOM.
+         */
+        render() {
+            const item = document.createElement('div');
+            item.classList.add('list-item');
+            this.include_data(item)
+            return item;
         }
 
-        getCurrentStep() {
-            var s = this.prevStep + 1;
-            if(s >= this.legs.length) { s = 0; }
-            return s;
-        }
-    }
+        /**
+         * Include the data of the ListItem to the html element.
+         * @param {HTMLElement} item The html element to edit.
+         */
+        include_data(item) {
+            var add_sep = false;
+            for (const key in this.data) {
+                const value = this.data[key];
 
-    class fwk_list extends HTMLDivElement {
-        static observedAttributes = ["orientation"];
+                if(add_sep) {this.add_separator(item);}
 
-        fixOrientation(o) {
-            if(o === 'horizontal' || o === 'vertical') { return; }
-            this.setAttribute("orientation", "vertical");
-        }
-
-        addSpacers() {
-            var walker = new fwk_walker(this);
-            for(walker.doubleStep(); walker.legs[0] !== null && walker.legs[1] !== null; walker.singleStep()) {
-                if(!walker.legs[0].classList.contains("fwk-list-spacer") && !walker.legs[1].classList.contains("fwk-list-spacer")) {
-                    let d = document.createElement("div");
-                    d.classList.add("fwk-list-spacer");
-                    this.insertBefore(d, walker.legs[walker.prevStep]);
-                }
-            }
-        }
-
-        connectedCallback() {
-            this.fixOrientation(this.getAttribute("orientation"));
-            this.addSpacers();
-        }
-
-        attributeChangedCallback(name, oval, nval) {
-            switch (name) {
-                case "orientation":
-                    this.fixOrientation(nval);
-                    break;
-
-                default:
-                    console.error(`No handler for attribute "${name}" in class "${this.name}"`);
-                    break;
+                const element = document.createElement('div');
+                element.classList.add("item-data");
+                element.setAttribute(`data-${key}`, value);
+                element.textContent = value;
+                item.appendChild(element);
+                add_sep = true;
             }
         }
     }
 
-    customElements.define("fwk-list", fwk_list, {extends: "div"});
-}(window.fwk = window.fwk || {}));
+
+
+    hwk.List = class extends HTMLDivElement {
+        constructor() {
+            super();
+            this.setAttribute("is", "hwk-list");
+            this.items = [];
+        }
+
+        /**
+         * Render an HTML representation of the element.
+         */
+        render() {
+            for(let i = 0; i < this.items.length; i++) {
+                const item = this.items[i];
+                this.appendChild(item.render());
+            }
+        }
+
+        /**
+         * Add a ListItem to the list and show it.
+         * @param {hwk.ListItem} item A ListItem object.
+         */
+        addItem(item) {
+            this.items.push(item);
+            this.appendChild(item.render());
+        }
+    }
+
+    customElements.define("hwk-list", hwk.List, {extends: "div"});
+}(window.hwk = window.hwk || {}));
