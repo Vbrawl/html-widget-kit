@@ -30,23 +30,11 @@
     }
 
     class fwk_list extends HTMLDivElement {
-        static observedAttributes = [
-            "orientation",
-            "spacing",
-            "border"
-        ];
+        static observedAttributes = ["orientation"];
 
         fixOrientation(o) {
             if(o === 'horizontal' || o === 'vertical') { return; }
             this.setAttribute("orientation", "vertical");
-        }
-
-        setSpacing(s) {
-            this.style.setProperty("--fwk-list-spacing", s);
-        }
-
-        setBorder(b) {
-            this.style.setProperty("--fwk-list-border", b);
         }
 
         addSpacers() {
@@ -62,26 +50,13 @@
 
         connectedCallback() {
             this.fixOrientation(this.getAttribute("orientation"));
-
-            {
-                let spacing = this.getAttribute("spacing");
-                this.setSpacing(spacing);
-                this.addSpacers();
-            }
+            this.addSpacers();
         }
 
         attributeChangedCallback(name, oval, nval) {
             switch (name) {
                 case "orientation":
                     this.fixOrientation(nval);
-                    break;
-            
-                case "spacing":
-                    this.setSpacing(nval);
-                    break;
-
-                case "border":
-                    this.setBorder(nval);
                     break;
 
                 default:
