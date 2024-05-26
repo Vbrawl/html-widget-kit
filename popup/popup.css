@@ -10,7 +10,7 @@ div[is="hwk-popup"] {
     background: rgba(0, 0, 0, .5);
 }
 
-div[is="hwk-popup"][obstructive="false"] {display:contents;}
+div[is="hwk-popup"][hwk-popup-obstructive="false"] {display:contents;}
 div[is="hwk-popup"][hidden] {display: none;}
 
 .hwk-popup-panel {

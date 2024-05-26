@@ -36,3 +36,4 @@ myPopup.show();
 
 * The popup automatically closes when the backdrop (the black background) is clicked. You can disable this feature by setting `hwk-popup-autoclose` attribute to `false`
 * To automatically close the popup with a button (and no extra javascript) you can provide an element with the `hwk-popup-close-button` attribute set to `true`.
+* To disable the backdrop of a popup you can set the `hwk-popup-obstructive` attribute to `false`.
