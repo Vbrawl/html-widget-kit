@@ -1,0 +1,26 @@
+
+div[is="hwk-notificationbox"] {
+    position: relative;
+    width: 20em;
+    height: 20em;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+div[is="hwk-notificationbox"] div[is="hwk-list"],
+div[is="hwk-notificationbox"] div[is="hwk-floatmenu"] {
+    width: 100%;
+    height: 100%;
+}
+
+
+.hwk-notificationbox-cancel-button {
+    background: url(./notification_cancel_button.svg) no-repeat;
+    width: 1em;
+    height: 1em;
+    background-size: 1em;
+
+    position: absolute;
+    left: 0;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../list/list.css">
+    <script src="../list/list.js" defer></script>
+
+    <link rel="stylesheet" href="../floatmenu/floatmenu.css">
+    <script src="../floatmenu/floatmenu.js" defer></script>
+
+    <link rel="stylesheet" href="../notificationbox/notificationbox.css">
+    <script src="../notificationbox/notificationbox.js" defer></script>
+
+    <style>
+        #notification {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="notification" is="hwk-notificationbox"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const notif = document.getElementById("notification");
+
+            for (let i = 0; i < 20; i++) {
+                notif.addNotification(new hwk.NotificationItem({greeting: "hi", index: i + 1}));
+            }
+        });
+    </script>
+</body>
+</html>
