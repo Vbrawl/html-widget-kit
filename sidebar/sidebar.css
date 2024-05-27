@@ -1,0 +1,25 @@
+
+
+div[is="hwk-sidebar"] {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    width: 10em;
+    max-width: 100vw;
+
+    transition: transform 250ms;
+}
+
+
+div[is="hwk-sidebar"][hidden] {
+    transform: translateX(-100%);
+}
+
+
+div[is="hwk-sidebar"][hwk-showmode="fullscreen"] {width: 100vw;}
+@media screen and (max-width: 600px) {
+    div[is="hwk-sidebar"] {width: 100vw;}
+}
