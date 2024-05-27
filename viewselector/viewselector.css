@@ -1,0 +1,36 @@
+
+div[is="hwk-viewselector"] {
+    width: 100%;
+    min-height: 2em;
+}
+
+.hwk-viewselector-head {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+
+    width: 100%;
+    height: 2em;
+
+    border-bottom: 1px black solid;
+}
+
+.hwk-viewselector-name-option {
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    align-content: center;
+
+    border-right: 1px black solid;
+    cursor: pointer;
+}
+
+.hwk-viewselector-name-option.active {
+    background: rgba(245, 245, 245);
+}
+
+.hwk-viewselector-body {
+    width: 100%;
+    height: calc(100% - 2em);
+}
