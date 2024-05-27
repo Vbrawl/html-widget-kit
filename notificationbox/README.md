@@ -2,10 +2,22 @@
 
 A NotificationBox element is an element that allows to create visual notification boxes and notifications.
 
+# Dependencies
+* hwk-list
+* hwk-floatmenu
+
 # Usage
 
 ## First step is to include the js/css.
 ```html
+<!--Include dependencies-->
+<script src="../list/list.js" defer></script>
+<link rel="stylesheet" href="../list/list.css">
+
+<script src="../floatmenu/floatmenu.js" defer></script>
+<link rel="stylesheet" href="../floatmenu/floatmenu.css">
+
+<!--Include notification element-->
 <script src="https://yourCDN/notificationbox/notificationbox.js" defer></script>
 <link rel="stylesheet" href="https://yourCDN/notificationbox/notificationbox.css">
 ```
