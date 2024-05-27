@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../floatmenu/floatmenu.css">
+    <script src="../floatmenu/floatmenu.js"></script>
+
+    <style>
+        .testmenu {
+            background: red;
+            width: 50vw;
+            height: 50vh;
+        }
+
+        #show-button {
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="show-button">Open Flow Menu</button>
+    <div is="hwk-floatmenu" class="testmenu" hidden></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            var m1 = document.getElementsByClassName("testmenu")[0];
+
+            m1.addEventListener("click", (evt) => {
+                evt.stopPropagation();
+            });
+
+            document.getElementById("show-button").addEventListener("click", (evt) => {
+                m1.showForElement(evt.currentTarget);
+            });
+
+            // document.addEventListener("click", (evt) => {
+            //     console.log(evt.pageX, evt.pageY)
+            //     m1.showForPoint(evt.pageX, evt.pageY);
+            // });
+        });
+    </script>
+</body>
+</html>
