@@ -19,7 +19,7 @@ div[is="hwk-sidebar"][hidden] {
 }
 
 
-div[is="hwk-sidebar"][hwk-showmode="fullscreen"] {width: 100vw;}
+div[is="hwk-sidebar"][hwk-showmode="fullscreen"] {width: 100vw !important;}
 @media screen and (max-width: 600px) {
-    div[is="hwk-sidebar"] {width: 100vw;}
+    div[is="hwk-sidebar"] {width: 100vw !important;}
 }
