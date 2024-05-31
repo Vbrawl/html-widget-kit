@@ -5,9 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../contentfetch/contentfetch.css">
-    <script src="../contentfetch/contentfetch.js"></script>
+    <script src="../contentfetch/contentfetch.js" defer></script>
 </head>
 <body>
-    <div is="hwk-contentfetch" hwk-src="./contentfetch.asset.html"></div>
+    <div id="fbox" is="hwk-contentfetch" hwk-src="./contentfetch.asset.html"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const f = document.getElementById("fbox");
+            var FirstTime = true;
+            
+            f.addEventListener("reloaded", (evt) => {
+                console.log(evt);
+
+                if(FirstTime) {
+                    f.addEventListener("reloading", (evt) => {
+                        console.log(evt);
+                        evt.preventDefault();
+                    });
+                    f.setAttribute("hwk-src", "./contentfetch.asset2.html");
+                    FirstTime = false;
+                }
+            });
+
+        })
+    </script>
 </body>
 </html>

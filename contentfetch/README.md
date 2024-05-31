@@ -24,6 +24,27 @@ contentfetch_element.setAttribute("hwk-src", "https://yourCDN/SomeTextBasedConte
 document.body.appendChild(contentfetch_element);
 ```
 
+# Events
+
+This object uses events when reloading it's contents.
+
+- **reloading**
+  - Description:
+    - Dispatched just before fetching the new data for the element.
+  - event.details:
+    - url: The url to the new content.
+  - Other info:
+    - bubbles: true
+    - cancelable: true (stops element from reloading)
+- **reloaded**
+  - Description:
+    - Dispatched just after the new data is inserted to the element.
+  - event.details:
+    - url: The url of the new content.
+  - Other info:
+    - bubbles: true
+    - cancelable: false
+
 # Notes
 
 * The contents can be updated by updating the `hwk-src` attribute to point to another URL, the content will instantly reload.
