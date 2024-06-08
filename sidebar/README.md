@@ -38,3 +38,4 @@ mySideBar.show();
 * The sidebar will take-up the whole screen on devices with screen smaller than 600px (may change in the future)
 * The sidebar can take-up the whole screen on all devices by setting the `hwk-showmode` attribute to `fullscreen`
 * The sidebar can automatically close if an element inside of it with the attribute `hwk-sidebar-close-button` set to `true` is clicked.
+* To show the sidebar at the right you can set `side` attribute to `right`.
