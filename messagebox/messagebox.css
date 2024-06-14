@@ -1,0 +1,33 @@
+div[is="hwk-messagebox"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+div[is="hwk-messagebox"] .hwk-messagebox-panel {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    box-sizing: content-box;
+    min-width: 10em;
+    max-width: 50em;
+    max-width: 15em;
+    padding: 2em;
+}
+
+
+div[is="hwk-messagebox"] .hwk-messagebox-alert-text {
+    text-align: center;
+    word-break: break-all;
+    word-wrap: break-word;
+    text-wrap: wrap;
+}
+
+div[is="hwk-messagebox"] .hwk-messagebox-alert-ok-button {
+    display: block;
+    margin: 2rem auto 0 auto;
+}
