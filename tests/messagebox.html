@@ -17,6 +17,10 @@
 
             hwk.confirm("hello\nnew line\n\nDouble new line").then((res) => {
                 console.log("Running 2: ", res);
+            });
+
+            hwk.prompt("Hi\nnew line\n\nDouble new line").then((res) => {
+                console.log("Running 3: ", res);
             })
         });
     </script>

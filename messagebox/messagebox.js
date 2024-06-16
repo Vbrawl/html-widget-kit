@@ -84,5 +84,53 @@
         })
     }
 
+    hwk.prompt = async function(message) {
+        return await new Promise((resolve, reject) => {
+            try {
+                const msg_box = new hwk.MessageBox();
+                const panel = msg_box.getElementsByClassName("hwk-messagebox-panel")[0];
+                const text_widget = document.createElement("div");
+                const text_input = document.createElement("input");
+                const ok_button = document.createElement("button");
+                const cancel_button = document.createElement("button");
+    
+                msg_box.classList.add("hwk-messagebox-prompt");
+    
+                text_widget.classList.add("hwk-messagebox-prompt-text");
+                text_widget.innerText = message; // enter = ok
+    
+                text_input.classList.add("hwk-messagebox-prompt-input");
+    
+                ok_button.classList.add("hwk-messagebox-prompt-ok-button");
+                ok_button.innerText = "Ok"; // input value
+    
+                cancel_button.classList.add("hwk-messagebox-prompt-cancel-button");
+                cancel_button.innerText = "Cancel"; // null
+    
+                panel.appendChild(text_widget);
+                panel.appendChild(text_input);
+                panel.appendChild(ok_button);
+                panel.appendChild(cancel_button);
+                document.body.appendChild(msg_box);
+    
+                const ok_handler = () => {
+                    const input_value = text_input.value;
+                    msg_box.remove();
+                    resolve(input_value);
+                }
+                ok_button.addEventListener("click", ok_handler);
+                text_input.addEventListener("keypress", (evt) => {
+                    if(evt.key === "Enter" && !evt.shiftKey) { ok_handler(); }
+                });
+    
+                cancel_button.addEventListener("click", () => {
+                    msg_box.remove();
+                    resolve(null);
+                });
+            }
+            catch(e) { reject(e); }
+        });
+    }
+
     customElements.define("hwk-messagebox", hwk.MessageBox, {extends: "div"});
 }(window.hwk = window.hwk || {}));
