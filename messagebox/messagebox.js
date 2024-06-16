@@ -45,5 +45,44 @@
         });
     }
 
+    hwk.confirm = async function(message) {
+        return await new Promise((resolve, reject) => {
+            try {
+                const msg_box = new hwk.MessageBox();
+                const panel = msg_box.getElementsByClassName("hwk-messagebox-panel")[0];
+                const text_widget = document.createElement("div");
+                const ok_button = document.createElement("button");
+                const cancel_button = document.createElement("button");
+
+                msg_box.classList.add("hwk-messagebox-confirm");
+
+                text_widget.classList.add("hwk-messagebox-confirm-text");
+                text_widget.innerText = message;
+
+                ok_button.classList.add("hwk-messagebox-confirm-ok-button");
+                ok_button.innerText = "Ok";
+
+                cancel_button.classList.add("hwk-messagebox-confirm-cancel-button");
+                cancel_button.innerText = "Cancel";
+
+                panel.appendChild(text_widget);
+                panel.appendChild(ok_button);
+                panel.appendChild(cancel_button);
+                document.body.appendChild(msg_box);
+
+
+                ok_button.addEventListener("click", () => {
+                    msg_box.remove();
+                    resolve(true);
+                });
+                cancel_button.addEventListener("click", () => {
+                    msg_box.remove();
+                    resolve(false);
+                })
+            }
+            catch(e) { reject(e); }
+        })
+    }
+
     customElements.define("hwk-messagebox", hwk.MessageBox, {extends: "div"});
 }(window.hwk = window.hwk || {}));
