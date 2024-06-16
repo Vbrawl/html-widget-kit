@@ -11,11 +11,11 @@
 <body>
     <script>
         customElements.whenDefined("hwk-messagebox").then(() => {
-            hwk.alert("hi").then(() => {
+            hwk.alert("hi\nnew line\n\nDouble new line").then(() => {
                 console.log("Running");
             });
 
-            hwk.confirm("hello").then((res) => {
+            hwk.confirm("hello\nnew line\n\nDouble new line").then((res) => {
                 console.log("Running 2: ", res);
             })
         });
