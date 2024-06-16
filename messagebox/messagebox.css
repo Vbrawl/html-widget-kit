@@ -35,7 +35,7 @@ div[is="hwk-messagebox"] .hwk-messagebox-alert-ok-button {
 
 div[is="hwk-messagebox"].hwk-messagebox-confirm .hwk-messagebox-panel {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-columns: 1fr 1fr;
     row-gap: .5rem;
     column-gap: .5rem;
