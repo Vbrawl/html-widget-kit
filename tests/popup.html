@@ -9,9 +9,20 @@
 </head>
 <body>
     <div>Real Text</div>
-    <div is="hwk-popup">
+    <div id="test-popup" is="hwk-popup">
         <div>Hi</div>
         <div hwk-popup-close-button="true">CLOSE</div>
     </div>
+
+    <script>
+        customElements.whenDefined("hwk-popup").then(() => {
+            const test_popup = document.getElementById("test-popup");
+
+            const ndiv = document.createElement("div");
+            ndiv.innerText = "This should be added to the panel";
+
+            test_popup.appendChild(ndiv);
+        });
+    </script>
 </body>
 </html>

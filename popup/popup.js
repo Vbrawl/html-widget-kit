@@ -8,15 +8,13 @@
         constructor() {
             super();
             this.setAttribute("is", "hwk-popup");
+            this.panel = document.createElement("div");
 
-
-            const panel = document.createElement("div");
-            panel.classList.add("hwk-popup-panel");
-            while (this.children.length != 0) {
-                panel.appendChild(this.children[0]);
+            this.panel.classList.add("hwk-popup-panel");
+            while(this.childNodes.length != 0) {
+                this.panel.appendChild(this.childNodes[0]);
             }
-            this.appendChild(panel);
-
+            super.appendChild(this.panel);
 
             this.addEventListener("click", (evt) => {
                 if(evt.target === this) {
@@ -34,6 +32,10 @@
                 }
                 if(child.getAttribute("hwk-popup-close-button") === "true") {this.hide();}
             });
+        }
+
+        appendChild(node) {
+            this.panel.appendChild(node);
         }
 
 
