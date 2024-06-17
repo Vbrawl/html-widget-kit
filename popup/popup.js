@@ -27,7 +27,7 @@
                 // Check if target is inside an element with
                 // the attribute "hwk-popup-close-button" set to "true"
                 var child = evt.target;
-                while(panel !== child && child.getAttribute("hwk-popup-close-button") !== "true") {
+                while(this.panel !== child && child.getAttribute("hwk-popup-close-button") !== "true") {
                     child = child.parentElement;
                 }
                 if(child.getAttribute("hwk-popup-close-button") === "true") {this.hide();}
