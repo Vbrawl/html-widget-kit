@@ -1,12 +1,20 @@
-div[is="hwk-messagebox"] {
+div[is="hwk-popup"].hwk-messagebox {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+
+    background: transparent;
 }
 
-div[is="hwk-messagebox"] .hwk-messagebox-panel {
+div[is="hwk-popup"].hwk-messagebox .hwk-popup-panel {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr 1fr;
+    row-gap: .5rem;
+    column-gap: .5rem;
+
     position: fixed;
     top: 10%;
     left: 50%;
@@ -19,48 +27,41 @@ div[is="hwk-messagebox"] .hwk-messagebox-panel {
     padding: 2em;
 }
 
-
-div[is="hwk-messagebox"] .hwk-messagebox-alert-text,
-div[is="hwk-messagebox"] .hwk-messagebox-confirm-text,
-div[is="hwk-messagebox"] .hwk-messagebox-prompt-text {
+div[is="hwk-popup"].hwk-messagebox .hwk-messagebox-text {
     text-align: center;
     word-break: break-all;
     word-wrap: break-word;
     text-wrap: wrap;
-}
 
-div[is="hwk-messagebox"] .hwk-messagebox-alert-ok-button {
-    display: block;
-    margin: .5rem auto 0 auto;
-}
-
-div[is="hwk-messagebox"].hwk-messagebox-confirm .hwk-messagebox-panel,
-div[is="hwk-messagebox"].hwk-messagebox-prompt .hwk-messagebox-panel {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: 1fr 1fr;
-    row-gap: .5rem;
-    column-gap: .5rem;
-}
-
-div[is="hwk-messagebox"] .hwk-messagebox-confirm-text,
-div[is="hwk-messagebox"] .hwk-messagebox-prompt-text {
     grid-row: 1;
     grid-column: 1 / span 2;
 }
 
-div[is="hwk-messagebox"] .hwk-messagebox-prompt-input {
+div[is="hwk-popup"].hwk-messagebox .hwk-messagebox-ok-button {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+}
+div[is="hwk-popup"].hwk-messagebox .hwk-messagebox-cancel-button {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+div[is="hwk-popup"].hwk-messagebox.confirm .hwk-messagebox-ok-button {
+    grid-column: 1;
+}
+
+
+div[is="hwk-popup"].hwk-messagebox.prompt .hwk-messagebox-input {
     grid-row: 2;
     grid-column: 1 / span 2;
     margin-left: 1px;
 }
 
-div[is="hwk-messagebox"] .hwk-messagebox-confirm-ok-button {
-    grid-row: 2;
+div[is="hwk-popup"].hwk-messagebox.prompt .hwk-messagebox-ok-button {
+    grid-row: 3;
     grid-column: 1;
 }
 
-div[is="hwk-messagebox"] .hwk-messagebox-confirm-cancel-button {
-    grid-row: 2;
-    grid-column: 2;
+div[is="hwk-popup"].hwk-messagebox.prompt .hwk-messagebox-cancel-button {
+    grid-row: 3;
 }

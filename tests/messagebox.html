@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TestMessageBox</title>
 
-    <script src="../messagebox/messagebox.js" defer></script>
+    <script src="../popup/popup.js" defer></script>
+    <link rel="stylesheet" href="../popup/popup.css">
+    <script src="../messagebox/messagebox.js"></script>
     <link rel="stylesheet" href="../messagebox/messagebox.css">
 </head>
 <body>
     <script>
-        customElements.whenDefined("hwk-messagebox").then(() => {
+        customElements.whenDefined("hwk-popup").then(() => {
             hwk.alert("hi\nnew line\n\nDouble new line").then(() => {
                 console.log("Running");
             });
@@ -21,7 +23,7 @@
 
             hwk.prompt("Hi\nnew line\n\nDouble new line").then((res) => {
                 console.log("Running 3: ", res);
-            })
+            });
         });
     </script>
 </body>
