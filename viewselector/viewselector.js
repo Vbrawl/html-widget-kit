@@ -2,7 +2,7 @@
 
 (function(hwk) {
     hwk.ViewSelector = class extends HTMLDivElement {
-        static observedAttributes = ["hwk-viewselector-displayid"]; // TODO: Handle changes.
+        static observedAttributes = ["hwk-viewselector-displayid"];
 
         constructor() {
             super();
@@ -49,7 +49,7 @@
         setView(viewID = null) {
             if(viewID === null) {
                 if(this.body.children.length === 0) {return;}
-                viewID = this.body.children[0];
+                viewID = this.body.children[0].getAttribute("hwk-viewselector-id");
             }
             const toDeactivate = this.head.getElementsByClassName('active');
             const toActivate = this.head.querySelectorAll(`[hwk-viewselector-id="${viewID}"]`);
