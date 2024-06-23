@@ -51,20 +51,30 @@
                 if(this.body.children.length === 0) {return;}
                 viewID = this.body.children[0].getAttribute("hwk-viewselector-id");
             }
-            const toDeactivate = this.head.getElementsByClassName('active');
-            const toActivate = this.head.querySelectorAll(`[hwk-viewselector-id="${viewID}"]`);
-            const nonHidden = this.body.querySelectorAll(':not([hidden])');
-            const toDisplay = this.body.querySelectorAll(`[hwk-viewselector-id="${viewID}"]`);
 
-            for (let i = 0; i < toDeactivate.length; i++)
-                { toDeactivate[i].classList.remove("active"); }
-            for (let i = 0; i < toActivate.length; i++)
-                { toActivate[i].classList.add("active"); }
+            var toActivate = undefined;
+            var toDisplay = undefined;
 
-            for (let i = 0; i < nonHidden.length; i++)
-                { nonHidden[i].setAttribute("hidden", ""); }
-            for (let i = 0; i < toDisplay.length; i++)
-                { toDisplay[i].removeAttribute("hidden"); }
+            // Deactivate & hide all
+            for (let i = 0; i < this.head.childNodes.length; i++) {
+                const node = this.head.childNodes[i];
+                if(node.classList.contains("active"))
+                    { node.classList.remove("active"); }
+
+                if(node.getAttribute("hwk-viewselector-id") === viewID)
+                    { toActivate = node; }
+            }
+            for (let i = 0; i < this.body.childNodes.length; i++) {
+                const node = this.body.childNodes[i];
+                if(!node.hasAttribute("hidden"))
+                    { node.setAttribute("hidden", ''); }
+
+                if(node.getAttribute("hwk-viewselector-id") === viewID)
+                    { toDisplay = node; }
+            }
+
+            if(toActivate) toActivate.classList.add("active");
+            if(toDisplay) toDisplay.removeAttribute("hidden");
 
             this.setAttribute("hwk-viewselector-displayid", viewID);
         }
